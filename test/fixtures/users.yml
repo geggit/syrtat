@@ -1,0 +1,9 @@
+valid_user:
+  id: 3
+  username: gjergj
+  email: gjergjarbeni@hotmail.com
+  hashed_password: 5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5
+    # clear password = gjergj
+  profile: Me
+  created_at: <%= 1.days.ago.to_s(:db) %>
+

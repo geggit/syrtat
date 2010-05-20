@@ -1,0 +1,32 @@
+<ul>
+  <li><%= link_to(image_tag("home.png", :size => "100x22", :border => 1), index_url) %></li>
+  <li><%= link_to(image_tag("photos.png", :size => "100x22", :border => 1), photos_path) %></li>
+  <li><%= link_to(image_tag("PhotoTags.png", :size => "100x22", :border => 1), tags_path) %></li>
+
+
+  <% if is_logged_in? %>
+    <li>Logged in as: <i><%= logged_in_user.username %></i></li>
+
+    <li><%= link_to(image_tag("EditYourProfile.png", :size => "100x22", :border => 1), edit_user_path(logged_in_user)) %></li>
+
+    <li><%= link_to(image_tag("MyPhotos.png", :size => "100x22", :border => 1), user_photos_path(:user_id => logged_in_user)) -%></li>
+
+    <li><%= link_to(image_tag("UploadPhoto.png", :size => "100x22", :border => 1),
+              user_new_photo_path(:user_id => logged_in_user)) -%></li>
+
+    <li><%= link_to(image_tag("Logout.png", :size => "100x22", :border => 1),
+                              {:controller => 'account', :action => 'logout'},
+                               :method => :post ) %></li>
+  <% else %>
+    <li><%= link_to(image_tag("Signup.png", :size => "100x22", :border => 1),:controller=>'users', :action=>'new')%></li>
+    <li><%= link_to(image_tag("Login.png", :size =>"100x22", :border => 1),:controller=>'account', :action=>'login')%></li>
+ <% end %>
+
+  <% if logged_in_user and logged_in_user.has_role?('administrator') %>
+    <li><hr size="1" width="85%" align="left"/></li>
+    <li><b>Admin Options</b></li>
+    <li><%= link_to(image_tag("AdministerUsers.png", :size => "100x22", :border => 1), users_path) %></li>
+    <li><%= link_to(image_tag("EditPages.png", :size => "100x22", :border => 1), pages_path) %></li>
+  <% end %>
+
+</ul>

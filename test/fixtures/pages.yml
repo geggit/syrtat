@@ -1,0 +1,14 @@
+valid_page:
+  id: 1
+  title: Welcome Page
+  permanentlink: Welcome
+  body: Welcome to MeetingPoint
+invalid_page_short_title:
+  id: 2
+  title: a
+  permanentlink: a
+  body: The title is shorter than 3 character
+valid_with_auto_permanentlink:
+  id: 3
+  title: Another Page, but without a permanentlink
+  body: No permanentlink 
